@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Made with Thimble</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body><center>
+    <h1></h1>
+    <p>
+      
+    </p>
+    <div id="time"></div>
+    </center>
+ <script>
+   function checkTime(i) {
+     if (i < 10) {
+       i = "0" + i;
+     }
+     return i;
+   }
+
+   function startTime() {
+     var today = new Date();
+     var h = today.getHours();
+     var m = today.getMinutes();
+     var s = today.getSeconds();
+     // add a zero in front of numbers<10
+     m = checkTime(m);
+     s = checkTime(s);
+     document.getElementById('time').innerHTML = h-12 + ":" + m + ":" + s;
+     t = setTimeout(function() {
+       startTime()
+     }, 500);
+   }
+   startTime();
+    </script>
+  </body>
+
+</html>
